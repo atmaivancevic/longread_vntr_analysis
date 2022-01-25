@@ -3,7 +3,7 @@
 ## Script for aligning long-read bams
 ##
 ## Example usage:
-## inDir=. outDir=. sbatch --array 0-1 minimap.sbatch
+## inDir=. outDir=. sbatch --array 0-1 minimapAlign.sbatch
 
 ## General settings
 #SBATCH -p short
