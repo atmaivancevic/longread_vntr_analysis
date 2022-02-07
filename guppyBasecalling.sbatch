@@ -1,9 +1,9 @@
 #!/bin/bash
 
-## Script for running guppy basecalling (cpu version)
+## Script for running guppy basecalling
 ##
 ## Example usage:
-## inDir=. outDir=. sbatch --array 0-1 guppyBasecalling.sbatch
+## inDir=. outDir=. sbatch guppyBasecalling.sbatch
 
 ## General settings
 #SBATCH -p short
@@ -19,8 +19,8 @@
 
 ##################################
 
-# Example of your dirs:
-# inDir=/Shares/CL_Shared/nanopore/Olivia_LTR10_220203/no_sample/20220203_1713_MN34862_AIL780_8c01033a/fast5
-# outDir=/Shares/CL_Shared/nanopore/Olivia_LTR10_220203/no_sample/20220203_1713_MN34862_AIL780_8c01033a/fastq
+# Example 
+# inDir=./fast5
+# outDir=./fastq
 
 /Shares/CL_Shared/programs/ont-guppy-cpu/bin/guppy_basecaller -c dna_r9.4.1_450bps_sup.cfg --compress_fastq -s $outDir -i $inDir --cpu_threads_per_caller 8 --num_callers 2
