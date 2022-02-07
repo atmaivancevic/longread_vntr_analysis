@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Example usage:
-## sbatch --array 0-24 intersectBam.q
+## sbatch --array 0-24 intersectBam.sbatch
 
 # General settings
 #SBATCH -p short
