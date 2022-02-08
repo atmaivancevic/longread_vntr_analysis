@@ -12,8 +12,8 @@
 
 # Job name and output
 #SBATCH -J sraDownload
-#SBATCH -o /Users/%u/slurmOut/slurm-%A_%a.out
-#SBATCH -e /Users/%u/slurmErr/slurm-%A_%a.err
+#SBATCH -o /scratch/Users/%u/data/slurmOut/slurm-%A_%a.out
+#SBATCH -e /scratch/Users/%u/data/slurmErr/slurm-%A_%a.err
 
 # load modules
 module load sra
