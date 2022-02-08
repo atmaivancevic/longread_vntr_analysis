@@ -14,8 +14,8 @@
 
 # Job name and output
 #SBATCH -J minimap2
-#SBATCH -o /Users/%u/slurmOut/slurm-%A_%a.out
-#SBATCH -e /Users/%u/slurmErr/slurm-%A_%a.err
+#SBATCH -o /scratch/Users/%u/data/slurmOut/slurm-%A_%a.out
+#SBATCH -e /scratch/Users/%u/data/slurmErr/slurm-%A_%a.err
 
 module load minimap2/2.17
 module load samtools
