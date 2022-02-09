@@ -23,6 +23,9 @@ module load samtools
 # Set query files
 queries=($(ls $inDir/*.fastq.gz | xargs -n 1 basename))
 
+# or, for unzipped files
+#queries=($(ls $inDir/*.fastq | xargs -n 1 basename))
+
 # Run minimap2
 # note: use -Y to enable soft-clipping (required by downstream STR programs)
 
