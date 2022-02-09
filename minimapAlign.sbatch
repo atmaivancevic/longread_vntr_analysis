@@ -24,7 +24,8 @@ module load samtools
 queries=($(ls $inDir/*.fastq.gz | xargs -n 1 basename))
 
 # Run minimap2
-# note: use -Y to enable soft-clipping
+# note: use -Y to enable soft-clipping (required by downstream STR programs)
+
 minimap2 -a -x map-ont -t 4 -Y \
 /Shares/CL_Shared/db/genomes/hg38/fa/hg38.main.fa \
 $inDir/${queries[$SLURM_ARRAY_TASK_ID]} \
