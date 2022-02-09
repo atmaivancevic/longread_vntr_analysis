@@ -14,8 +14,8 @@
 
 # Job name and output
 #SBATCH -J hubload_bam
-#SBATCH -o /Users/%u/slurmOut/slurm-%j.out
-#SBATCH -e /Users/%u/slurmErr/slurm-%j.err
+#SBATCH -o /scratch/Users/%u/data/slurmOut/slurm-%j.out
+#SBATCH -e /scratch/Users/%u/data/slurmErr/slurm-%j.err
 
 # commands go here
 pwd; hostname; date
