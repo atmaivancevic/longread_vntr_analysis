@@ -22,4 +22,4 @@
 module load ncbi-blast
 module load bedtools/2.28.0 
 
-python3 straglr.py /path/to/bam/BAMFILENAME /Shares/CL_Shared/db/genomes/hg38/fa/hg38.main.fa test_output 
+python3 straglr.py /Shares/CL_Shared/data/olivia/National_Cancer_Institute/SRR5951586_1.sorted.bam /Shares/CL_Shared/db/genomes/hg38/fa/hg38.main.fa test_output --min_str_len 6 --max_str_len 14 --chroms 5 --nprocs 8
