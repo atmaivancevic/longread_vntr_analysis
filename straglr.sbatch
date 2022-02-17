@@ -20,5 +20,6 @@
 # run this script from the straglr directory
 
 module load ncbi-blast
+module load bedtools/2.28.0 
 
 python3 straglr.py /path/to/bam/BAMFILENAME /Shares/CL_Shared/db/genomes/hg38/fa/hg38.main.fa test_output 
