@@ -3,7 +3,7 @@
 ## Script for testing straglr
 ##
 ## Example usage:
-## inDir=/Shares/CL_Shared/data/olivia/Olivia_20220216/demultiplexed/all_barcodes sbatch straglr.sbatch
+## inDir=/Shares/CL_Shared/data/olivia/Olivia_20220216/demultiplexed/all_barcodes sbatch --array 0-10 straglr.sbatch
 
 ## General settings
 #SBATCH -p short
