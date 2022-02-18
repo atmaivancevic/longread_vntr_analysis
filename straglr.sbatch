@@ -3,7 +3,7 @@
 ## Script for testing straglr
 ##
 ## Example usage:
-## sbatch straglr.sbatch
+## inDir=/Shares/CL_Shared/data/olivia/Olivia_20220216/demultiplexed/all_barcodes sbatch straglr.sbatch
 
 ## General settings
 #SBATCH -p short
@@ -19,8 +19,20 @@
 
 # run this script from the straglr directory
 
+# define query bam files
+queries=($(ls $inDir/*.bam | xargs -n 1 basename))
+
+# load modules
 module load ncbi-blast
 module load bedtools/2.28.0 
 module load python/3.7.4
 
-python3 straglr.py /Shares/CL_Shared/data/olivia/National_Cancer_Institute/SRR5951586_1.sorted.bam /Shares/CL_Shared/db/genomes/hg38/fa/hg38.main.fa test_output --min_str_len 6 --max_str_len 14 --chroms 5 --nprocs 8 --min_ins_size 30
+# run the thing
+pwd; hostname; date
+
+echo "Processing file: "${queries[$SLURM_ARRAY_TASK_ID]}
+
+python3 straglr.py ${inDir}/${queries[$SLURM_ARRAY_TASK_ID]} /Shares/CL_Shared/db/genomes/hg38/fa/hg38.main.fa ${queries[$SLURM_ARRAY_TASK_ID]%.run2.bam} --min_str_len 4 --nprocs 8 --min_ins_size 4
+
+echo $(date +"[%b %d %H:%M:%S] Done!")
+
