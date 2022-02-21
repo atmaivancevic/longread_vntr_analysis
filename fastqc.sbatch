@@ -29,6 +29,6 @@ pwd; hostname; date
 echo "Processing file: "${queries[$SLURM_ARRAY_TASK_ID]}
 echo $(date +"[%b %d %H:%M:%S] Starting fastqc...")
 
-fastqc -o ${outDir} -f fastq -t 8 ${inDir}/${queries[$SLURM_ARRAY_TASK_ID]}
+fastqc -o ${outDir} -f . -t 8 ${inDir}/${queries[$SLURM_ARRAY_TASK_ID]}
 
 echo $(date +"[%b %d %H:%M:%S] Done!")
