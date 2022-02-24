@@ -3,7 +3,7 @@
 ## Script for testing straglr
 ##
 ## Example usage:
-## inDir=/Shares/CL_Shared/data/olivia/Olivia_20220216/demultiplexed/all_barcodes sbatch --array 0-10 straglr.sbatch
+## inDir=. outDir=. sbatch --array 0-10 straglr.sbatch
 
 ## General settings
 #SBATCH -p short
@@ -32,7 +32,7 @@ pwd; hostname; date
 
 echo "Processing file: "${queries[$SLURM_ARRAY_TASK_ID]}
 
-python3 straglr.py ${inDir}/${queries[$SLURM_ARRAY_TASK_ID]} /Shares/CL_Shared/db/genomes/hg38/fa/hg38.main.fa ${queries[$SLURM_ARRAY_TASK_ID]%.run2.bam} --min_str_len 4 --nprocs 8 --min_ins_size 4
+python3 straglr.py ${inDir}/${queries[$SLURM_ARRAY_TASK_ID]} /Shares/CL_Shared/db/genomes/hg38/fa/hg38.main.fa ${outDir}/${queries[$SLURM_ARRAY_TASK_ID]%.run2.bam} --min_str_len 4 --nprocs 8 --min_ins_size 4
 
 echo $(date +"[%b %d %H:%M:%S] Done!")
 
